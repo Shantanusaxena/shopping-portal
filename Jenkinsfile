@@ -9,30 +9,29 @@ pipeline{
     
 
     stages{
-        stage('build-the-app'){
+        stage('build'){
             steps{
                 echo 'this is the build job'
                 sh 'npm install'
             }
         }
-        stage('test-the-app'){
+        stage('test'){
             steps{
                 echo 'this is the test job'
                 sh 'npm test'
-                 }
+            }
         }
-        stage('package-the-app'){
+        stage('package'){
             steps{
-                echo 'this is the third job'
-                sh 'unpm run package'
-                
+                echo 'this is the package job'
+                sh 'npm run package'
             }
         }
     }
     
     post{
         always{
-            echo 'this is my first pipeline as code...'
+            echo 'this pipeline has completed...'
         }
         
     }
